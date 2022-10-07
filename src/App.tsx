@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import { getAllReviews } from './shared/handlers';
+import { Review } from './shared/interfaces';
+import { ReviewList } from './components/Review/List/ReviewList';
+
 import './App.css';
 
 function App() {
+  const [reviews, setReviews] = useState<Review[] | []>([]);
+
+  useEffect(() => {
+    fetchReviews();
+  }, []);
+
+  const fetchReviews = async () => {
+    try {
+      const data = await getAllReviews();
+
+      setReviews(data);
+    } catch (err) {
+      console.log('err', err);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main data-testid="app" className="App">
+      <h1>Reviews</h1>
+      <ReviewList reviews={reviews} />
+    </main>
   );
 }
 
