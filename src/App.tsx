@@ -24,6 +24,7 @@ function App() {
 
   return (
     <main data-testid="app" className="App">
+      <h1>Reviews</h1>
       <ReviewList reviews={reviews} />
     </main>
   );
