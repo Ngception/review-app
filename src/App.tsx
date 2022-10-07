@@ -23,9 +23,9 @@ function App() {
   };
 
   return (
-    <div data-testid="app" className="App">
+    <main data-testid="app" className="App">
       <ReviewList reviews={reviews} />
-    </div>
+    </main>
   );
 }
 
