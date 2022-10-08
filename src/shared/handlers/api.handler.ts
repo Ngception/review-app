@@ -1,6 +1,6 @@
 import { Review } from '../interfaces';
 
-const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+const ENDPOINT = `${process.env.PUBLIC_URL}/${process.env.REACT_APP_ENDPOINT}`;
 
 export const getAllReviews = async (): Promise<Review[]> => {
   const response = await fetch(`${ENDPOINT}`, {
