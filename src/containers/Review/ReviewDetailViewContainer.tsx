@@ -15,7 +15,7 @@ export const ReviewDetailViewContainer = () => {
   }, []);
 
   const getReviewById = () => {
-    let reviewId = id || localStorage.getItem('targetItem');
+    let reviewId = id || localStorage.getItem('selectedReview');
     let reviewData;
 
     reviewData = state.reviews.find((review) => review.id === reviewId);
