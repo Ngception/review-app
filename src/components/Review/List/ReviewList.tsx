@@ -10,15 +10,10 @@ interface ReviewListProps {
 export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
   const navigate = useNavigate();
 
-  const setSelectedReview = (review: Review) => {
-    localStorage.setItem('selectedReview', review.id);
-    navigate(review.id);
-  };
-
   return (
     <ul data-testid="review-list">
       {props?.reviews?.map((review) => (
-        <li key={review.id} onClick={() => setSelectedReview(review)}>
+        <li key={review.id} onClick={() => navigate(review.id)}>
           <ReviewItem review={review} />
         </li>
       ))}

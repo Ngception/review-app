@@ -6,6 +6,7 @@ import { ReviewItem } from '../../../components/Review';
 
 export const ReviewDetailViewContainer = () => {
   const [review, setReview] = useState<Review | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { id } = useParams();
   const navigate = useNavigate();
   const { state } = useReview();
@@ -15,10 +16,9 @@ export const ReviewDetailViewContainer = () => {
   }, []);
 
   const getReviewById = () => {
-    let reviewId = id || localStorage.getItem('selectedReview');
     let reviewData;
 
-    reviewData = state.reviews.find((review) => review.id === reviewId);
+    reviewData = state.reviews.find((review) => review.id === id);
 
     if (!reviewData) {
       navigate('/reviews');
@@ -26,11 +26,12 @@ export const ReviewDetailViewContainer = () => {
     }
 
     setReview(reviewData);
+    setIsLoading(false);
   };
 
-  return review ? (
-    <div>
-      <ReviewItem review={review} />
-    </div>
-  ) : null;
+  return isLoading ? (
+    <h2>Loading...</h2>
+  ) : (
+    <>{review && <ReviewItem review={review} />}</>
+  );
 };
