@@ -1,8 +1,8 @@
-import { Review } from '../interfaces';
+import { Review } from '../../interfaces';
 
 export interface ReviewAction {
   type: string;
-  payload: any;
+  payload?: any;
 }
 
 export interface InitialReviewStateInterface {
@@ -13,12 +13,12 @@ export const REVIEW_ACTIONS = {
   SET_REVIEWS: 'SET REVIEWS'
 };
 
-export const reviewInitialState = {
+export const initialReviewState = {
   reviews: []
 };
 
 export const reviewReducer = (
-  state = reviewInitialState,
+  state = initialReviewState,
   action: ReviewAction
 ) => {
   switch (action.type) {
