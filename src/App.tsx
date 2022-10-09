@@ -1,31 +1,14 @@
-import { useEffect, useState } from 'react';
-import { getAllReviews } from './shared/handlers';
-import { Review } from './shared/interfaces';
-import { ReviewList } from './components/Review/List/ReviewList';
-
+import { Link } from 'react-router-dom';
+import { AppRoutes } from './routes';
 import './App.css';
 
 function App() {
-  const [reviews, setReviews] = useState<Review[] | []>([]);
-
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
-  const fetchReviews = async () => {
-    try {
-      const data = await getAllReviews();
-
-      setReviews(data);
-    } catch (err) {
-      console.log('err', err);
-    }
-  };
-
   return (
     <main data-testid="app" className="App">
-      <h1>Reviews</h1>
-      <ReviewList reviews={reviews} />
+      <Link to="/reviews" aria-description="Navigate to review list">
+        <h1>Reviews</h1>
+      </Link>
+      <AppRoutes />
     </main>
   );
 }

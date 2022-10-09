@@ -4,16 +4,12 @@ A React application that lists reviews and allows a user to select a review to s
 
 ## Prerequisites
 
----
-
 This project uses Node.js version >=16.10 and Yarn package manager.
 
 - https://nodejs.org/en/download/
 - https://yarnpkg.com/getting-started/install
 
 ## Setup
-
----
 
 Install dependencies:
 
@@ -34,8 +30,6 @@ Start app:
 ```
 
 ## Testing
-
----
 
 To run unit tests:
 
