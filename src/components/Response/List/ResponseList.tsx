@@ -11,7 +11,6 @@ export const ResponseList: FC<ResponseListProps> = (
 ) => {
   return (
     <div data-testid="response-list">
-      <h2>ResponseList works!</h2>
       {props.responses.map((response) => (
         <ResponseItem response={response} key={response.id} />
       ))}
