@@ -3,12 +3,12 @@ import { render } from '@testing-library/react';
 import {
   mockWindowLocation,
   restoreWindowLocation
-} from '../../shared/handlers';
-import { ReviewProvider } from '../../shared/context';
-import MockRouter from '../../components/testing/MockRouter';
-import { ReviewDetailViewContainer } from './ReviewDetailViewContainer';
+} from '../../../shared/handlers';
+import { ReviewProvider } from '../../../shared/context';
+import MockRouter from '../../../components/testing/MockRouter';
+import { ReviewListViewContainer } from './ReviewListViewContainer';
 
-describe('ReviewDetailViewContainer', () => {
+describe('ReviewListViewContainer', () => {
   const originalWindow = global.window;
 
   beforeAll(() => {
@@ -19,11 +19,11 @@ describe('ReviewDetailViewContainer', () => {
     restoreWindowLocation(originalWindow);
   });
 
-  test('renders ReviewDetailViewContainer component', () => {
+  test('renders ReviewListViewContainer component', () => {
     const component = render(
       <MockRouter route="/">
         <ReviewProvider>
-          <ReviewDetailViewContainer />
+          <ReviewListViewContainer />
         </ReviewProvider>
       </MockRouter>
     ).baseElement;

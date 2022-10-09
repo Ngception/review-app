@@ -1,3 +1,3 @@
 export * from './ReviewContainer';
-export * from './ReviewDetailViewContainer';
-export * from './ReviewListViewContainer';
+export * from './DetailView/ReviewDetailViewContainer';
+export * from './ListView/ReviewListViewContainer';

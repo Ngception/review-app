@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useReview } from '../../shared/hooks';
-import { Review } from '../../shared/interfaces';
-import { ReviewItem } from '../../components/Review';
+import { useReview } from '../../../shared/hooks';
+import { Review } from '../../../shared/interfaces';
+import { ReviewItem } from '../../../components/Review';
 
 export const ReviewDetailViewContainer = () => {
   const [review, setReview] = useState<Review | null>(null);

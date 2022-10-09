@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import { useReview } from '../../shared/hooks';
-import { Review } from '../../shared/interfaces';
-import { ReviewList } from '../../components/Review';
+import { useReview } from '../../../shared/hooks';
+import { Review } from '../../../shared/interfaces';
+import { ReviewList } from '../../../components/Review';
 
 interface ReviewContainerProps {}
 

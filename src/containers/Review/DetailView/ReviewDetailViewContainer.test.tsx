@@ -3,9 +3,9 @@ import { render } from '@testing-library/react';
 import {
   mockWindowLocation,
   restoreWindowLocation
-} from '../../shared/handlers';
-import { ReviewProvider } from '../../shared/context';
-import MockRouter from '../../components/testing/MockRouter';
+} from '../../../shared/handlers';
+import { ReviewProvider } from '../../../shared/context';
+import MockRouter from '../../../components/testing/MockRouter';
 import { ReviewDetailViewContainer } from './ReviewDetailViewContainer';
 
 describe('ReviewDetailViewContainer', () => {
