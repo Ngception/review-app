@@ -14,7 +14,11 @@ export const ResponseContainer: FC<ResponseContainerProps> = (
   return (
     <div data-testid="response-container">
       <h2>ResponseContainer works!</h2>
-      <ResponseList responses={state.responses} />
+      <ResponseList
+        responses={state.responses.filter(
+          (response) => response.review_id === props.reviewId
+        )}
+      />
       {state.responses.some(
         (response) => response.review_id === props.reviewId
       ) ? null : (
