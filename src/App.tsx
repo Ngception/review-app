@@ -5,7 +5,7 @@ import './App.css';
 function App() {
   return (
     <main data-testid="app" className="App">
-      <Link to="/reviews">
+      <Link to="/reviews" aria-description="Navigate to review list">
         <h1>Reviews</h1>
       </Link>
       <AppRoutes />
