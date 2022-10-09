@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useReview } from '../../../shared/hooks';
 import { Review } from '../../../shared/interfaces';
 import { ReviewItem } from '../../../components/Review';
+import { ResponseContainer } from '../../Response/ResponseContainer';
 
 export const ReviewDetailViewContainer = () => {
   const [review, setReview] = useState<Review | null>(null);
@@ -22,6 +23,7 @@ export const ReviewDetailViewContainer = () => {
 
     if (!reviewData) {
       navigate('/reviews');
+      setIsLoading(false);
       return;
     }
 
@@ -29,9 +31,20 @@ export const ReviewDetailViewContainer = () => {
     setIsLoading(false);
   };
 
-  return isLoading ? (
-    <h2>Loading...</h2>
-  ) : (
-    <>{review && <ReviewItem review={review} />}</>
+  return (
+    <div data-testid="review-detail-view-container">
+      {isLoading ? (
+        <h2>Loading...</h2>
+      ) : (
+        <>
+          {review && (
+            <>
+              <ReviewItem review={review} />
+              <ResponseContainer reviewId={review.id} />
+            </>
+          )}
+        </>
+      )}
+    </div>
   );
 };

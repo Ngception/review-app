@@ -15,5 +15,9 @@ export const ReviewListViewContainer: FC<ReviewContainerProps> = (
     setReviewList(state.reviews);
   }, [state.reviews?.length]);
 
-  return <ReviewList reviews={reviewList} />;
+  return (
+    <div data-testid="review-list-view-container">
+      <ReviewList reviews={reviewList} />
+    </div>
+  );
 };
