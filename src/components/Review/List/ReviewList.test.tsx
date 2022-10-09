@@ -18,6 +18,7 @@ describe('ReviewList', () => {
   afterAll(() => {
     restoreWindowLocation(originalWindow);
   });
+
   test('renders ReviewList component with multiple items', () => {
     const reviews = createReviews();
 
@@ -31,7 +32,7 @@ describe('ReviewList', () => {
     expect(screen.getAllByTestId('review-item').length).toEqual(reviews.length);
   });
 
-  it('renders ReviewList component with no items', () => {
+  test('renders ReviewList component with no items', () => {
     render(
       <MockRouter route="/">
         <ReviewList reviews={[]} />

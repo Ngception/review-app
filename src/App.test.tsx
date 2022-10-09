@@ -11,6 +11,10 @@ describe('App', () => {
     mockWindowLocation();
   });
 
+  afterAll(() => {
+    restoreWindowLocation(originalWindow);
+  });
+
   test('renders App component', () => {
     render(
       <MockRouter route="/">
@@ -19,9 +23,5 @@ describe('App', () => {
     );
 
     expect(screen.getByTestId('app')).toBeInTheDocument();
-  });
-
-  afterAll(() => {
-    restoreWindowLocation(originalWindow);
   });
 });
