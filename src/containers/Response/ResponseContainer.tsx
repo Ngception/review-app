@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useResponse } from '../../shared/hooks';
-import { ResponseList } from '../../components/Response';
+import { ResponseCreate, ResponseList } from '../../components/Response';
 
 interface ResponseContainerProps {
   reviewId: string;
@@ -13,7 +13,16 @@ export const ResponseContainer: FC<ResponseContainerProps> = (
 
   return (
     <div data-testid="response-container">
-      <ResponseList responses={state.responses} />
+      <ResponseList
+        responses={state.responses.filter(
+          (response) => response.review_id === props.reviewId
+        )}
+      />
+      {state.responses.some(
+        (response) => response.review_id === props.reviewId
+      ) ? null : (
+        <ResponseCreate reviewId={props.reviewId} />
+      )}
     </div>
   );
 };
