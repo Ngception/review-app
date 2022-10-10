@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { ResponseProvider } from '../../../shared/context';
+import { ResponseProvider } from '../../../shared/context/ResponseContext';
 import { createResponse } from '../../../shared/handlers';
 import { ResponseItem } from './ResponseItem';
 
