@@ -10,10 +10,10 @@ export const ResponseItem: FC<ResponseItemProps> = (
 ) => {
   return (
     <div data-testid="response-item">
-      <p>{props.response.author}</p>
-      <p>{props.response.content}</p>
-      <p>{props.response.published_at}</p>
-      <p>{props.response.review_id}</p>
+      <p data-testid="response-author">{props.response.author}</p>
+      <p data-testid="response-content">{props.response.content}</p>
+      <p data-testid="response-published-at">{props.response.published_at}</p>
+      <p data-testid="response-review-id">{props.response.review_id}</p>
     </div>
   );
 };
