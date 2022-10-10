@@ -1,1 +1,2 @@
-export * from './review.reducer';
+export * from './review/review.reducer';
+export * from './response/response.reducer';

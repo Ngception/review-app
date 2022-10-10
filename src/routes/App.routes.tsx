@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { ReviewProvider } from '../shared/context';
+import { ResponseProvider, ReviewProvider } from '../shared/context';
 import { ReviewRoutes } from './';
 
 interface AppRoutesProps {}
@@ -12,7 +12,9 @@ export const AppRoutes: FC<AppRoutesProps> = (props: AppRoutesProps) => {
         path="/reviews/*"
         element={
           <ReviewProvider>
-            <ReviewRoutes />
+            <ResponseProvider>
+              <ReviewRoutes />
+            </ResponseProvider>
           </ReviewProvider>
         }
       />

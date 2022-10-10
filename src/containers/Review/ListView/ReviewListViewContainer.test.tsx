@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import {
   mockWindowLocation,
   restoreWindowLocation
@@ -20,14 +20,16 @@ describe('ReviewListViewContainer', () => {
   });
 
   test('renders ReviewListViewContainer component', () => {
-    const component = render(
+    render(
       <MockRouter route="/">
         <ReviewProvider>
           <ReviewListViewContainer />
         </ReviewProvider>
       </MockRouter>
-    ).baseElement;
+    );
 
-    expect(component).toBeTruthy();
+    expect(
+      screen.getByTestId('review-list-view-container')
+    ).toBeInTheDocument();
   });
 });

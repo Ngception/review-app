@@ -33,5 +33,9 @@ export const ReviewContainer: FC<ReviewContainerProps> = (
     setIsLoading(false);
   };
 
-  return isLoading ? <h1>Loading...</h1> : <Outlet></Outlet>;
+  return (
+    <div data-testid="review-container">
+      {isLoading ? <h1>Loading...</h1> : <Outlet></Outlet>}
+    </div>
+  );
 };

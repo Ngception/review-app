@@ -1,13 +1,25 @@
-import { reviews } from '../fixtures';
+import { responses, reviews } from '../fixtures';
+import { Response, Review } from '../interfaces';
 
-export const createReview = () => {
+// Reviews
+export const createReview = (): Review => {
   return reviews[0];
 };
 
-export const createReviews = () => {
+export const createReviews = (): Review[] => {
   return reviews;
 };
 
+// Responses
+export const createResponse = (): Response => {
+  return responses[0];
+};
+
+export const createResponses = (): Response[] => {
+  return responses;
+};
+
+// Router
 export const mockWindowLocation = () => {
   global.window = Object.create(window);
   Object.defineProperty(window, 'location', {

@@ -2,10 +2,10 @@ import { createContext, FC, ReactNode, useReducer } from 'react';
 import { Review } from '../interfaces';
 import {
   InitialReviewStateInterface,
-  reviewInitialState,
+  initialReviewState,
   reviewReducer,
   REVIEW_ACTIONS
-} from '../reducers/review.reducer';
+} from '../reducers/review/review.reducer';
 
 export interface IReviewContext {
   state: InitialReviewStateInterface;
@@ -23,7 +23,7 @@ export const ReviewProvider: FC<ReviewProviderProps> = ({
   initialState,
   children
 }) => {
-  const [state, dispatch] = useReducer(reviewReducer, reviewInitialState);
+  const [state, dispatch] = useReducer(reviewReducer, initialReviewState);
 
   const value = {
     state: initialState || (state as InitialReviewStateInterface),
