@@ -46,11 +46,14 @@ export const ResponseEdit: FC<ResponseEditProps> = (
           value={updatedContent}
           onChange={handleChange}
         />
-        <button data-testid="update-button" type="submit">
+        <button
+          data-testid="update-button"
+          type="submit"
+          disabled={!updatedContent}
+        >
           Update
         </button>
         <button
-          disabled={!updatedContent}
           data-testid="cancel-button"
           type="button"
           onClick={() => props.cancelHandler()}
