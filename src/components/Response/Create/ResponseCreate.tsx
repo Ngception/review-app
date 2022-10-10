@@ -28,6 +28,10 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
+    if (!name || !content) {
+      return;
+    }
+
     const data = {
       id: uuid.v4(),
       author: name,
@@ -37,16 +41,19 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
     };
 
     addResponse(data);
+    setContent('');
+    setName('');
 
     return;
   };
 
   return (
     <div data-testid="response-create">
-      <form onSubmit={handleSubmit}>
+      <form data-testid="response-create-form" onSubmit={handleSubmit}>
         <h3>Post a response</h3>
         <label htmlFor="name">Name</label>
         <input
+          data-testid="name-input"
           id="name"
           type="text"
           name="name"
@@ -55,13 +62,19 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
         />
         <label htmlFor="content">Content</label>
         <input
+          data-testid="content-input"
           id="content"
           type="text"
           name="content"
           onChange={handleContentChange}
           value={content}
         />
-        <button type="button" onClick={handleSubmit}>
+        <button
+          disabled={!name || !content}
+          data-testid="submit-button"
+          type="submit"
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </form>
