@@ -23,6 +23,10 @@ export const ResponseEdit: FC<ResponseEditProps> = (
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
+    if (!updatedContent) {
+      return;
+    }
+
     props.updateHandler({
       ...props.response,
       content: updatedContent,
@@ -46,6 +50,7 @@ export const ResponseEdit: FC<ResponseEditProps> = (
           Update
         </button>
         <button
+          disabled={!updatedContent}
           data-testid="cancel-button"
           type="button"
           onClick={() => props.cancelHandler()}
