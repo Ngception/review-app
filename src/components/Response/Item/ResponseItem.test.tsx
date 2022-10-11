@@ -27,6 +27,5 @@ describe('ResponseItem', () => {
     expect(screen.getByTestId('response-author')).toBeInTheDocument();
     expect(screen.getByTestId('response-content')).toBeInTheDocument();
     expect(screen.getByTestId('response-published-at')).toBeInTheDocument();
-    expect(screen.getByTestId('response-review-id')).toBeInTheDocument();
   });
 });
