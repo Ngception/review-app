@@ -1,0 +1,31 @@
+.response-item {
+  height: 100%;
+}
+
+.response-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.response-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 88%;
+}
+
+.response-metadata {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.response-metadata p {
+  margin-right: 2rem;
+}
+
+.response-published-at {
+  color: hsl(0, 0%, 71%);
+}

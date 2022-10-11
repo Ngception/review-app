@@ -1,5 +1,12 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Response } from '../../../shared/interfaces';
+import {
+  Button,
+  FormControl,
+  FormField,
+  FormLabel,
+  FormTextArea
+} from '../../../shared/ui/components';
 
 interface ResponseEditProps {
   response: Response;
@@ -14,7 +21,7 @@ export const ResponseEdit: FC<ResponseEditProps> = (
     props.response.content
   );
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
 
     setUpdatedContent(event.target.value);
@@ -37,29 +44,41 @@ export const ResponseEdit: FC<ResponseEditProps> = (
   return (
     <div data-testid="response-edit">
       <form data-testid="response-edit-form" onSubmit={handleSubmit}>
-        <label htmlFor="content">Content</label>
-        <input
-          data-testid="content-input"
-          type="text"
-          name="content"
-          id="content"
-          value={updatedContent}
-          onChange={handleChange}
-        />
-        <button
-          data-testid="update-button"
-          type="submit"
-          disabled={!updatedContent}
-        >
-          Update
-        </button>
-        <button
-          data-testid="cancel-button"
-          type="button"
-          onClick={() => props.cancelHandler()}
-        >
-          Cancel
-        </button>
+        <FormField>
+          <FormLabel for="content">
+            <h2>Content</h2>
+          </FormLabel>
+          <FormControl>
+            <FormTextArea
+              testId="content-input"
+              name="content"
+              id="content"
+              value={updatedContent}
+              onChange={handleChange}
+            />
+          </FormControl>
+        </FormField>
+        <FormField group={true}>
+          <FormControl>
+            <Button
+              testId="update-button"
+              type="submit"
+              color="primary"
+              disabled={!updatedContent}
+            >
+              Update
+            </Button>
+          </FormControl>
+          <FormControl>
+            <Button
+              testId="cancel-button"
+              type="button"
+              onClick={() => props.cancelHandler()}
+            >
+              Cancel
+            </Button>
+          </FormControl>
+        </FormField>
       </form>
     </div>
   );

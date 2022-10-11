@@ -1,6 +1,15 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import * as uuid from 'uuid';
 import { useResponse } from '../../../shared/hooks';
+import {
+  Button,
+  FormControl,
+  FormField,
+  FormInput,
+  FormLabel,
+  FormTextArea
+} from '../../../shared/ui/components';
+import styles from './ResponseCreate.module.css';
 
 interface ResponseCreateProps {
   reviewId: string;
@@ -13,7 +22,7 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
   const [name, setName] = useState<string>('');
   const { addResponse } = useResponse();
 
-  const handleContentChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
 
     setContent(event.target.value);
@@ -49,34 +58,44 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
 
   return (
     <div data-testid="response-create">
-      <form data-testid="response-create-form" onSubmit={handleSubmit}>
-        <h3>Post a response</h3>
-        <label htmlFor="name">Name</label>
-        <input
-          data-testid="name-input"
-          id="name"
-          type="text"
-          name="name"
-          onChange={handleUserChange}
-          value={name}
-        />
-        <label htmlFor="content">Content</label>
-        <input
-          data-testid="content-input"
-          id="content"
-          type="text"
-          name="content"
-          onChange={handleContentChange}
-          value={content}
-        />
-        <button
+      <form
+        data-testid="response-create-form"
+        onSubmit={handleSubmit}
+        className={styles['response-create-form']}
+      >
+        <h2>Post a response</h2>
+        <FormField>
+          <FormLabel for="name">Name</FormLabel>
+          <FormControl>
+            <FormInput
+              id="name"
+              type="text"
+              name="name"
+              onChange={handleUserChange}
+              value={name}
+            />
+          </FormControl>
+        </FormField>
+        <FormField>
+          <FormLabel for="content">Content</FormLabel>
+          <FormControl>
+            <FormTextArea
+              id="content"
+              name="content"
+              onChange={handleContentChange}
+              value={content}
+            />
+          </FormControl>
+        </FormField>
+        <Button
+          color="primary"
           disabled={!name || !content}
-          data-testid="submit-button"
           type="submit"
+          testId="submit-button"
           onClick={handleSubmit}
         >
           Submit
-        </button>
+        </Button>
       </form>
     </div>
   );

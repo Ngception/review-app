@@ -1,15 +1,15 @@
 import { FC } from 'react';
-import { useResponse } from '../../../shared/hooks';
 import { Review } from '../../../shared/interfaces';
-import { Icon } from '../../../shared/components';
-import styles from './ReviewItem.module.css';
+import { Icon } from '../../../shared/ui/components';
+import styles from './ReviewDetail.module.css';
 
-interface ReviewItemProps {
+interface ReviewDetailProps {
   review: Review;
 }
 
-export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
-  const { state } = useResponse();
+export const ReviewDetail: FC<ReviewDetailProps> = (
+  props: ReviewDetailProps
+) => {
   const formattedDate = new Date(props.review.published_at).toLocaleDateString(
     'en-US',
     {
@@ -20,8 +20,8 @@ export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
   );
 
   return (
-    <div data-testid="review-item" className={styles['review-item']}>
-      <div className={styles['review-header']}>
+    <div data-testid="review-detail" className={styles['review-detail']}>
+      <div>
         <h2 data-testid="review-place">{props.review.place}</h2>
         <div data-testid="review-rating" className={styles['review-rating']}>
           {Array.from(Array(props.review.rating).keys()).map((_i) => (
@@ -40,15 +40,6 @@ export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
         >
           {formattedDate}
         </p>
-        {state.responses.some(
-          (response) => response.review_id === props.review.id
-        ) ? (
-          <div className={styles['responses-indicator-icon']}>
-            <Icon name={'comments'} />
-          </div>
-        ) : (
-          <div></div>
-        )}
       </div>
     </div>
   );

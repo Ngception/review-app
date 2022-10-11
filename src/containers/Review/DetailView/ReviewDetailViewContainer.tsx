@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useReview } from '../../../shared/hooks';
 import { Review } from '../../../shared/interfaces';
-import { ReviewItem } from '../../../components/Review';
+import { Card } from '../../../shared/ui/components';
 import { ResponseContainer } from '../../Response/ResponseContainer';
+import { ReviewDetail } from '../../../components/Review/Detail/ReviewDetail';
+import styles from './ReviewDetailViewContainer.module.css';
 
 export const ReviewDetailViewContainer = () => {
   const [review, setReview] = useState<Review | null>(null);
@@ -32,14 +34,21 @@ export const ReviewDetailViewContainer = () => {
   };
 
   return (
-    <div data-testid="review-detail-view-container">
+    <div
+      data-testid="review-detail-view-container"
+      className={styles['review-detail-view-container']}
+    >
       {isLoading ? (
         <h2>Loading...</h2>
       ) : (
         <>
           {review && (
             <>
-              <ReviewItem review={review} />
+              <div className={styles['review-detail-card']}>
+                <Card>
+                  <ReviewDetail review={review} />
+                </Card>
+              </div>
               <ResponseContainer reviewId={review.id} />
             </>
           )}

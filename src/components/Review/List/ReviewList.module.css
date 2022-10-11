@@ -1,13 +1,19 @@
 .review-list {
-  list-style: none;
+  list-style: none !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  margin: none !important;
 }
 
 .review-list-item {
-  margin: 2rem 1rem;
+  margin-bottom: 5rem;
   height: 300px;
+}
+
+.review-list-item h2 {
+  margin: none !important;
 }
 
 .review-list-item:hover {

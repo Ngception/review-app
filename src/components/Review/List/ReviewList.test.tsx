@@ -32,7 +32,9 @@ describe('ReviewList', () => {
     );
 
     expect(screen.getByTestId('review-list')).toBeInTheDocument();
-    expect(screen.getAllByTestId('review-item').length).toEqual(reviews.length);
+    expect(screen.getAllByTestId('review-list-item').length).toEqual(
+      reviews.length
+    );
   });
 
   test('renders ReviewList component with no items', () => {
@@ -43,6 +45,6 @@ describe('ReviewList', () => {
     );
 
     expect(screen.getByTestId('review-list')).toBeInTheDocument();
-    expect(screen.queryAllByTestId('review-item').length).toEqual(0);
+    expect(screen.queryAllByTestId('review-list-item').length).toEqual(0);
   });
 });
