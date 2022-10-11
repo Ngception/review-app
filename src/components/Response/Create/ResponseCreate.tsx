@@ -9,7 +9,6 @@ import {
   FormLabel,
   FormTextArea
 } from '../../../shared/ui/components';
-import styles from './ResponseCreate.module.css';
 
 interface ResponseCreateProps {
   reviewId: string;
