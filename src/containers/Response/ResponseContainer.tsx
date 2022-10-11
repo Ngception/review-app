@@ -23,9 +23,11 @@ export const ResponseContainer: FC<ResponseContainerProps> = (
       {state.responses.some(
         (response) => response.review_id === props.reviewId
       ) ? null : (
-        <div className={styles['response-create']}>
+        <div className={styles['response-create-card']}>
           <Card>
-            <ResponseCreate reviewId={props.reviewId} />
+            <div className={styles['response-create-component']}>
+              <ResponseCreate reviewId={props.reviewId} />
+            </div>
           </Card>
         </div>
       )}

@@ -8,7 +8,7 @@
 
 .review-list-item {
   margin-bottom: 5rem;
-  height: 300px;
+  min-height: 300px;
 }
 
 .review-list-item:hover {

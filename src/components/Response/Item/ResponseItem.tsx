@@ -58,9 +58,11 @@ export const ResponseItem: FC<ResponseItemProps> = (
           data-testid="response-item-content"
           className={styles['response-item-content']}
         >
-          <Button testId="reply-button" color="white">
-            <Icon name="reply" color="link" />
-          </Button>
+          <div className={styles['reply-button']}>
+            <Button testId="reply-button" color="white">
+              <Icon name="reply" color="link" />
+            </Button>
+          </div>
           <div className={styles['response-content-container']}>
             <p data-testid="response-content">{props.response.content}</p>
             <div className={styles['response-metadata']}>
@@ -73,19 +75,21 @@ export const ResponseItem: FC<ResponseItemProps> = (
               </p>
             </div>
           </div>
-          <Dropdown
-            align="right"
-            triggerIcon="ellipsis"
-            triggerColor="white"
-            triggerIconColor="link"
-            triggerAriaLabel={`Actions for response by ${props.response.author} on ${props.response.published_at}`}
-          >
-            <DropdownMenu>
-              <DropdownItem onClick={() => setIsEditing(true)}>
-                Edit
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+          <div className={styles['actions-button']}>
+            <Dropdown
+              align="right"
+              triggerIcon="ellipsis"
+              triggerColor="white"
+              triggerIconColor="link"
+              triggerAriaLabel={`Actions for response by ${props.response.author} on ${props.response.published_at}`}
+            >
+              <DropdownMenu>
+                <DropdownItem onClick={() => setIsEditing(true)}>
+                  Edit
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
         </div>
       )}
     </div>

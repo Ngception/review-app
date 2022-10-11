@@ -21,7 +21,7 @@ export const ReviewDetail: FC<ReviewDetailProps> = (
 
   return (
     <div data-testid="review-detail" className={styles['review-detail']}>
-      <div className={styles['review-header']}>
+      <div>
         <h2 data-testid="review-place">{props.review.place}</h2>
         <div data-testid="review-rating" className={styles['review-rating']}>
           {Array.from(Array(props.review.rating).keys()).map((_i) => (

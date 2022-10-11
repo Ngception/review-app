@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  padding: 0 3rem;
 }
 
 .review-rating {
@@ -10,24 +11,20 @@
 }
 
 .review-content {
-  display: -webkit-box;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  margin-top: 1rem;
 }
 
 .review-published-at {
   color: hsl(0, 0%, 71%);
+  text-align: center;
 }
 
 .review-footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
 }
 
-.review-published-at {
-  text-align: center;
+.review-footer > p {
+  margin-right: 1rem;
 }
 
 .responses-indicator-icon {
