@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { useResponse } from '../../../shared/hooks';
-import { Review } from '../../../shared/interfaces';
-import { Icon } from '../../../shared/ui/components';
+import { useResponse } from '../../../../shared/hooks';
+import { Review } from '../../../../shared/interfaces';
+import { Icon } from '../../../../shared/ui/components';
 import styles from './ReviewItem.module.css';
 
 interface ReviewItemProps {

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Review } from '../../../shared/interfaces';
 import { Card } from '../../../shared/ui/components';
-import { ReviewItem } from '../Item/ReviewItem';
+import { ReviewItem } from './Item/ReviewItem';
 import styles from './ReviewList.module.css';
 
 interface ReviewListProps {
