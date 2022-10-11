@@ -1,14 +1,16 @@
-import { Link } from 'react-router-dom';
 import { AppRoutes } from './routes';
+import { PrimaryNavbar } from './components/Nav';
 import './App.css';
 
 function App() {
   return (
     <main data-testid="app" className="App">
-      <Link to="/reviews" aria-description="Navigate to review list">
-        <h1>Reviews</h1>
-      </Link>
-      <AppRoutes />
+      <div className="header">
+        <PrimaryNavbar />
+      </div>
+      <div className="content">
+        <AppRoutes />
+      </div>
     </main>
   );
 }
