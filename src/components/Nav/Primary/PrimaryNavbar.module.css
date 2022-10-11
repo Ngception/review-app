@@ -1,0 +1,16 @@
+.primary-navbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.primary-navbar a {
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.primary-navbar a:hover {
+  text-decoration: underline;
+}

@@ -7,6 +7,7 @@ import {
 } from '../../../shared/handlers';
 import { ReviewList } from './ReviewList';
 import MockRouter from '../../testing/MockRouter';
+import { ResponseProvider } from '../../../shared/context';
 
 describe('ReviewList', () => {
   const originalWindow = global.window;
@@ -24,7 +25,9 @@ describe('ReviewList', () => {
 
     render(
       <MockRouter route="/">
-        <ReviewList reviews={reviews} />
+        <ResponseProvider>
+          <ReviewList reviews={reviews} />
+        </ResponseProvider>
       </MockRouter>
     );
 
