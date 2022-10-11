@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import App from './App';
-import 'purecss/build/pure.css';
+import 'bulma/css/bulma.min.css';
 import './index.css';
 
 library.add(fas);
