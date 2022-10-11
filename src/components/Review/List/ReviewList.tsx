@@ -17,8 +17,12 @@ export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
       {props?.reviews?.map((review) => (
         <li
           className={styles['review-list-item']}
-          onClick={() => navigate(review.id)}
+          role=""
+          tabIndex={0}
           key={review.id}
+          aria-label={`${review.place} review`}
+          aria-description="Click to navigate to detail view for this review"
+          onClick={() => navigate(review.id)}
         >
           <Card>
             <ReviewItem review={review} />
