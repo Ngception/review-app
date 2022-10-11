@@ -23,7 +23,7 @@ export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
     <div data-testid="review-item" className={styles['review-item']}>
       <div className={styles['review-header']}>
         <h2 data-testid="review-place">{props.review.place}</h2>
-        <div className={styles['review-rating']}>
+        <div data-testid="review-rating" className={styles['review-rating']}>
           {Array.from(Array(props.review.rating).keys()).map((_i) => (
             <Icon name={'star'} key={_i} />
           ))}
