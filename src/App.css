@@ -5,6 +5,7 @@
   width: 100%;
   padding: 0 5rem;
   background-color: hsl(217, 71%, 53%);
+  z-index: 100;
 }
 
 .content {
