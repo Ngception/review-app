@@ -9,6 +9,7 @@ import {
   FormLabel,
   FormTextArea
 } from '../../../shared/ui/components';
+import styles from './ResponseCreate.module.css';
 
 interface ResponseCreateProps {
   reviewId: string;
@@ -57,7 +58,11 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
 
   return (
     <div data-testid="response-create">
-      <form data-testid="response-create-form" onSubmit={handleSubmit}>
+      <form
+        data-testid="response-create-form"
+        onSubmit={handleSubmit}
+        className={styles['response-create-form']}
+      >
         <h2>Post a response</h2>
         <FormField>
           <FormLabel for="name">Name</FormLabel>

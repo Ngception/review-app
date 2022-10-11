@@ -2,7 +2,6 @@ import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { Icon } from '../Icon/Icon';
 import { DropdownTrigger } from './Trigger/DropdownTrigger';
-import 'bulma/css/bulma.min.css';
 
 interface DropdownProps {
   children: ReactNode;

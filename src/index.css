@@ -22,3 +22,12 @@ code {
 main {
   height: 100vh;
 }
+
+h2,
+p {
+  margin-bottom: 0 !important;
+}
+
+ul {
+  margin-left: 0 !important;
+}

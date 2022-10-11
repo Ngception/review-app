@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 100%;
   padding: 0 3rem;
+  min-height: 300px;
 }
 
 .review-rating {
@@ -21,6 +22,7 @@
 
 .review-footer {
   display: flex;
+  margin-top: 2rem;
 }
 
 .review-footer > p {
