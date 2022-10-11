@@ -35,3 +35,20 @@
 //     }
 //   }
 // }
+
+Cypress.Commands.add('getByTestId', (value: string) => {
+  return cy.get(`[data-testid=${value}]`);
+});
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.dataCy('greeting')
+       */
+      getByTestId(value: string): Chainable<Element>;
+      createResponse(name: string, content: string): Chainable<Element>;
+    }
+  }
+}
