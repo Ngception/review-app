@@ -4,6 +4,8 @@ import { useReview } from '../../../shared/hooks';
 import { Review } from '../../../shared/interfaces';
 import { ReviewItem } from '../../../components/Review';
 import { ResponseContainer } from '../../Response/ResponseContainer';
+import { Card } from '../../../shared/ui/components';
+import styles from './ReviewDetailViewContainer.module.css';
 
 export const ReviewDetailViewContainer = () => {
   const [review, setReview] = useState<Review | null>(null);
@@ -39,7 +41,11 @@ export const ReviewDetailViewContainer = () => {
         <>
           {review && (
             <>
-              <ReviewItem review={review} />
+              <div className={styles['review-item-card']}>
+                <Card>
+                  <ReviewItem review={review} />
+                </Card>
+              </div>
               <ResponseContainer reviewId={review.id} />
             </>
           )}

@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { useResponse } from '../../shared/hooks';
 import { ResponseCreate, ResponseList } from '../../components/Response';
+import { Card } from '../../shared/ui/components';
+import styles from './ResponseContainer.module.css';
 
 interface ResponseContainerProps {
   reviewId: string;
@@ -21,7 +23,11 @@ export const ResponseContainer: FC<ResponseContainerProps> = (
       {state.responses.some(
         (response) => response.review_id === props.reviewId
       ) ? null : (
-        <ResponseCreate reviewId={props.reviewId} />
+        <div className={styles['response-create']}>
+          <Card>
+            <ResponseCreate reviewId={props.reviewId} />
+          </Card>
+        </div>
       )}
     </div>
   );
