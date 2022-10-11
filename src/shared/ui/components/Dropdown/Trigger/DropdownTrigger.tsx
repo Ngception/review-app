@@ -4,6 +4,7 @@ import { COLORS } from '../../../constants';
 interface DropdownTriggerProps {
   children: ReactNode;
   color?: string;
+  testId?: string;
 }
 
 export const DropdownTrigger: FC<DropdownTriggerProps> = (
@@ -22,6 +23,7 @@ export const DropdownTrigger: FC<DropdownTriggerProps> = (
   return (
     <div className="dropdown-trigger">
       <button
+        data-testid={props.testId || 'dropdown-trigger'}
         className={setClasses()}
         aria-haspopup="true"
         aria-controls="dropdown-menu"

@@ -24,7 +24,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
 
   return (
     <button
-      data-testid={props.testId}
+      data-testid={props.testId || 'button'}
       className={setClasses()}
       disabled={props.disabled}
       type={props.type || 'button'}

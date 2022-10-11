@@ -50,6 +50,7 @@ export const ResponseEdit: FC<ResponseEditProps> = (
           </FormLabel>
           <FormControl>
             <FormTextArea
+              testId="content-input"
               name="content"
               id="content"
               value={updatedContent}

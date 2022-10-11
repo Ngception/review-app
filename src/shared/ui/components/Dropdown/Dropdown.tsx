@@ -11,6 +11,7 @@ interface DropdownProps {
   triggerIconColor?: string;
   triggerColor?: string;
   align?: 'left' | 'right';
+  testId?: string;
 }
 
 export const Dropdown: FC<DropdownProps> = (props: DropdownProps) => {
@@ -53,6 +54,7 @@ export const Dropdown: FC<DropdownProps> = (props: DropdownProps) => {
 
   return (
     <div
+      data-testid={props.testId || 'dropdown'}
       ref={dropdownRef}
       className={setClasses()}
       onClick={() => setShowContent(!showContent)}

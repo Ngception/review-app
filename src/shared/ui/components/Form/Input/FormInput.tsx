@@ -12,7 +12,7 @@ interface FormInputProps {
 export const FormInput: FC<FormInputProps> = (props: FormInputProps) => {
   return (
     <input
-      data-testid={props.testId}
+      data-testid={props.testId || 'form-input'}
       className="input"
       id={props.id}
       value={props.value}

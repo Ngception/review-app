@@ -14,7 +14,7 @@ export const FormTextArea: FC<FormTextAreaProps> = (
   return (
     <textarea
       className="textarea"
-      data-testid={props.testId}
+      data-testid={props.testId || 'form-textarea'}
       name={props.name}
       id={props.id}
       value={props.value}

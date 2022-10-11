@@ -3,6 +3,7 @@ import { FC, MouseEvent, ReactNode } from 'react';
 interface DropdownItemProps {
   children: ReactNode;
   onClick: () => void;
+  testId?: string;
 }
 
 export const DropdownItem: FC<DropdownItemProps> = (
@@ -15,7 +16,12 @@ export const DropdownItem: FC<DropdownItemProps> = (
   };
 
   return (
-    <a href="#" className="dropdown-item" onClick={handleClick}>
+    <a
+      data-testid={props.testId || 'dropdown-item'}
+      href="#"
+      className="dropdown-item"
+      onClick={handleClick}
+    >
       {props.children}
     </a>
   );

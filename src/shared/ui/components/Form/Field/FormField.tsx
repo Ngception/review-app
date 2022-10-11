@@ -3,6 +3,7 @@ import { FC, ReactNode } from 'react';
 interface FormFieldProps {
   children: ReactNode;
   group?: boolean;
+  testId?: string;
 }
 
 export const FormField: FC<FormFieldProps> = (props: FormFieldProps) => {
@@ -16,5 +17,9 @@ export const FormField: FC<FormFieldProps> = (props: FormFieldProps) => {
     return classes;
   };
 
-  return <div className={setClasses()}>{props.children}</div>;
+  return (
+    <div data-testid={props.testId || 'form-field'} className={setClasses()}>
+      {props.children}
+    </div>
+  );
 };
