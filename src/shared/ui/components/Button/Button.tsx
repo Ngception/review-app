@@ -8,6 +8,7 @@ interface ButtonProps {
   color?: string;
   testId?: string;
   disabled?: boolean;
+  ariaLabel?: string;
   onClick?: (data: any) => void;
 }
 
@@ -29,6 +30,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
       disabled={props.disabled}
       type={props.type || 'button'}
       onClick={props.onClick}
+      aria-label={props.ariaLabel || undefined}
     >
       {props.children}
     </button>

@@ -59,7 +59,11 @@ export const ResponseItem: FC<ResponseItemProps> = (
           className={styles['response-item-content']}
         >
           <div className={styles['reply-button']}>
-            <Button testId="reply-button" color="white">
+            <Button
+              testId="reply-button"
+              color="white"
+              ariaLabel={`Reply to response by ${props.response.author} on ${props.response.published_at}`}
+            >
               <Icon name="reply" color="link" />
             </Button>
           </div>
