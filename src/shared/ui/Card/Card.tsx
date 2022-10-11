@@ -6,5 +6,9 @@ interface CardProps {
 }
 
 export const Card: FC<CardProps> = (props: CardProps) => {
-  return <div className={styles['card']}>{props.children}</div>;
+  return (
+    <div data-testid="card" className={styles['card']}>
+      {props.children}
+    </div>
+  );
 };

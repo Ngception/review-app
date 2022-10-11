@@ -7,5 +7,9 @@ interface IconProps {
 }
 
 export const Icon: FC<IconProps> = (props: IconProps) => {
-  return <FontAwesomeIcon icon={['fas', props.name]} />;
+  return (
+    <span data-testid="icon">
+      <FontAwesomeIcon icon={['fas', props.name]} />
+    </span>
+  );
 };
