@@ -10,6 +10,7 @@ interface DropdownProps {
   triggerIcon?: IconName;
   triggerIconColor?: string;
   triggerColor?: string;
+  triggerAriaLabel?: string;
   align?: 'left' | 'right';
   testId?: string;
 }
@@ -59,7 +60,14 @@ export const Dropdown: FC<DropdownProps> = (props: DropdownProps) => {
       className={setClasses()}
       onClick={() => setShowContent(!showContent)}
     >
-      <DropdownTrigger color={props.triggerColor}>
+      <div className="is-sr-only" aria-live="polite">
+        {showContent && <p>Menu expanded</p>}
+        {!showContent && <p>Menu collapsed</p>}
+      </div>
+      <DropdownTrigger
+        color={props.triggerColor}
+        ariaLabel={props.triggerAriaLabel || undefined}
+      >
         {props.triggerText}{' '}
         {props.triggerIcon && (
           <Icon name={props.triggerIcon} color={props.triggerIconColor} />

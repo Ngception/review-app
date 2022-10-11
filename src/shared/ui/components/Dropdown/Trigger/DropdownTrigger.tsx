@@ -5,6 +5,7 @@ interface DropdownTriggerProps {
   children: ReactNode;
   color?: string;
   testId?: string;
+  ariaLabel?: string;
 }
 
 export const DropdownTrigger: FC<DropdownTriggerProps> = (
@@ -27,6 +28,7 @@ export const DropdownTrigger: FC<DropdownTriggerProps> = (
         className={setClasses()}
         aria-haspopup="true"
         aria-controls="dropdown-menu"
+        aria-label={props.ariaLabel || undefined}
       >
         {props.children}
       </button>

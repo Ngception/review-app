@@ -78,6 +78,7 @@ export const ResponseItem: FC<ResponseItemProps> = (
             triggerIcon="ellipsis"
             triggerColor="white"
             triggerIconColor="link"
+            triggerAriaLabel={`Actions for response by ${props.response.author} on ${props.response.published_at}`}
           >
             <DropdownMenu>
               <DropdownItem onClick={() => setIsEditing(true)}>
