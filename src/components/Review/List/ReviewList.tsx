@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Review } from '../../../shared/interfaces';
 import { Card } from '../../../shared/ui/components';
-import { ReviewItem } from './Item/ReviewItem';
+import { ReviewListItem } from './Item/ReviewListItem';
 import styles from './ReviewList.module.css';
 
 interface ReviewListProps {
@@ -25,7 +25,7 @@ export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
           onClick={() => navigate(review.id)}
         >
           <Card>
-            <ReviewItem review={review} />
+            <ReviewListItem review={review} />
           </Card>
         </li>
       ))}

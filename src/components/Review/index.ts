@@ -1,2 +1,2 @@
-export * from './List/Item/ReviewItem';
+export * from './List/Item/ReviewListItem';
 export * from './List/ReviewList';

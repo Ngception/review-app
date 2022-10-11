@@ -1,20 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { createReview } from '../../../../shared/handlers';
-import { ReviewItem } from './ReviewItem';
+import { ReviewListItem } from './ReviewListItem';
 import { ResponseProvider } from '../../../../shared/context';
 
-describe('ReviewItem', () => {
-  test('renders ReviewItem component', () => {
+describe('ReviewListItem', () => {
+  test('renders ReviewListItem component', () => {
     const review = createReview();
 
     render(
       <ResponseProvider>
-        <ReviewItem review={review} />
+        <ReviewListItem review={review} />
       </ResponseProvider>
     );
 
-    expect(screen.getByTestId('review-item')).toBeInTheDocument();
+    expect(screen.getByTestId('review-list-item')).toBeInTheDocument();
     expect(screen.getByTestId('review-place')).toBeInTheDocument();
     expect(screen.getByTestId('review-rating')).toBeInTheDocument();
     expect(screen.getByTestId('review-content')).toBeInTheDocument();

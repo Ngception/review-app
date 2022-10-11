@@ -2,13 +2,15 @@ import { FC } from 'react';
 import { useResponse } from '../../../../shared/hooks';
 import { Review } from '../../../../shared/interfaces';
 import { Icon } from '../../../../shared/ui/components';
-import styles from './ReviewItem.module.css';
+import styles from './ReviewListItem.module.css';
 
-interface ReviewItemProps {
+interface ReviewListItemProps {
   review: Review;
 }
 
-export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
+export const ReviewListItem: FC<ReviewListItemProps> = (
+  props: ReviewListItemProps
+) => {
   const { state } = useResponse();
   const formattedDate = new Date(props.review.published_at).toLocaleDateString(
     'en-US',
@@ -20,7 +22,7 @@ export const ReviewItem: FC<ReviewItemProps> = (props: ReviewItemProps) => {
   );
 
   return (
-    <div data-testid="review-item" className={styles['review-item']}>
+    <div data-testid="review-list-item" className={styles['review-list-item']}>
       <div className={styles['review-header']}>
         <h2 data-testid="review-place">{props.review.place}</h2>
         <div data-testid="review-rating" className={styles['review-rating']}>
