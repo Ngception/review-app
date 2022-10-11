@@ -1,0 +1,34 @@
+.review-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.review-list-item {
+  margin: 1rem;
+  height: 300px;
+}
+
+.review-list-item:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 64em) {
+  .review-list-item {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .review-list-item {
+    max-width: 45%;
+  }
+}
+
+@media screen and (min-width: 120em) {
+  .review-list-item {
+    max-width: 30%;
+  }
+}
