@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react';
 import * as uuid from 'uuid';
-import { useResponse } from '../../../shared/hooks';
+import { useResponse, useUser } from '../../../shared/hooks';
 import {
   Button,
   FormControl,
@@ -18,8 +18,9 @@ interface ResponseCreateProps {
 export const ResponseCreate: FC<ResponseCreateProps> = (
   props: ResponseCreateProps
 ) => {
+  const { state, setUserName } = useUser();
   const [content, setContent] = useState<string>('');
-  const [name, setName] = useState<string>('');
+  const [name, setName] = useState<string>(state.name);
   const { addResponse } = useResponse();
 
   const handleContentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -50,6 +51,7 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
     };
 
     addResponse(data);
+    setUserName(name);
     setContent('');
     setName('');
 
@@ -67,14 +69,17 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
         <FormField>
           <FormLabel for="name">Name</FormLabel>
           <FormControl>
-            <FormInput
-              testId="name-input"
-              id="name"
-              type="text"
-              name="name"
-              onChange={handleUserChange}
-              value={name}
-            />
+            {state.name ? (
+              <p>Posting as {state.name}</p>
+            ) : (
+              <FormInput
+                id="name"
+                type="text"
+                name="name"
+                onChange={handleUserChange}
+                value={name}
+              />
+            )}
           </FormControl>
         </FormField>
         <FormField>

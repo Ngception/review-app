@@ -1,13 +1,15 @@
 import { render, screen } from '@testing-library/react';
-import { ResponseProvider } from '../../../shared/context';
+import { ResponseProvider, UserProvider } from '../../../shared/context';
 import { ResponseCreate } from './ResponseCreate';
 
 describe('ResponseCreate', () => {
   test('renders ResponseCreate component', () => {
     render(
-      <ResponseProvider>
-        <ResponseCreate reviewId={'uuid'} />
-      </ResponseProvider>
+      <UserProvider>
+        <ResponseProvider>
+          <ResponseCreate reviewId={'uuid'} />
+        </ResponseProvider>
+      </UserProvider>
     );
 
     expect(screen.getByTestId('response-create')).toBeInTheDocument();
