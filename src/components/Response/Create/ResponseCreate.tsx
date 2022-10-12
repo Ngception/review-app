@@ -73,6 +73,7 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
               <p>Posting as {state.name}</p>
             ) : (
               <FormInput
+                testId="name-input"
                 id="name"
                 type="text"
                 name="name"
