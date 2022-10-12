@@ -21,4 +21,8 @@ jobs:
           cache: 'yarn'
       - run: yarn install
       - run: yarn test
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.x.x # use the explicit version number
+        with:
+          start: yarn start
       - run: echo "🍏 This job's status is ${{ job.status }}."
