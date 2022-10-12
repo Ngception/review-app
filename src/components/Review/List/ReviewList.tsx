@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Review } from '../../../shared/interfaces';
 import { Card } from '../../../shared/ui/components';
@@ -12,6 +12,16 @@ interface ReviewListProps {
 export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
   const navigate = useNavigate();
 
+  const handleKeyUp = (event: KeyboardEvent, reviewId: string) => {
+    event.preventDefault();
+
+    if (event.key === 'Enter') {
+      navigate(reviewId);
+    }
+
+    return;
+  };
+
   return (
     <ul data-testid="review-list" className={styles['review-list']}>
       {props?.reviews?.map((review) => (
@@ -23,6 +33,7 @@ export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
           aria-label={`${review.place} review`}
           aria-description="Click to navigate to detail view for this review"
           onClick={() => navigate(review.id)}
+          onKeyUp={(event) => handleKeyUp(event, review.id)}
         >
           <Card>
             <ReviewListItem review={review} />
