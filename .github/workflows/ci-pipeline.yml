@@ -24,5 +24,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4.2.0 # use the explicit version number
         with:
+          browser: chrome
           start: yarn start
       - run: echo "🍏 This job's status is ${{ job.status }}."
