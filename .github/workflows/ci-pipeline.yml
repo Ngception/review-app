@@ -22,10 +22,9 @@ jobs:
       - run: yarn install
       - run: yarn test
       - name: Cypress run
-        uses: cypress-io/github-action@v4.2.0 # use the explicit version number
+        uses: cypress-io/github-action@v4.0.0 # use the explicit version number
         with:
           browser: chrome
-          headed: true
           start: yarn start
           wait-on: 'http://localhost:3000'
       - run: echo "🍏 This job's status is ${{ job.status }}."
