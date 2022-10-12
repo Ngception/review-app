@@ -1,4 +1,4 @@
-# Review Detail Challenge
+# Review App
 
 A React application that lists reviews and allows a user to select a review to see more details. Review data is provided in the form of a `reviews.json` file.
 
