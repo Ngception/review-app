@@ -2,6 +2,8 @@ import { FC, useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getAllReviews } from '../../shared/handlers';
 import { useReview } from '../../shared/hooks';
+import { Loader } from '../../shared/ui/components';
+import styles from './ReviewContainer.module.css';
 
 interface ReviewContainerProps {}
 
@@ -34,8 +36,8 @@ export const ReviewContainer: FC<ReviewContainerProps> = (
   };
 
   return (
-    <div data-testid="review-container">
-      {isLoading ? <h1>Loading...</h1> : <Outlet></Outlet>}
+    <div data-testid="review-container" className={styles['review-container']}>
+      {isLoading ? <Loader /> : <Outlet></Outlet>}
     </div>
   );
 };
