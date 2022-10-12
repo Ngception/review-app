@@ -6,7 +6,7 @@ describe('review-detail.cy.js', () => {
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 
   beforeEach(() => {
-    cy.visit('localhost:3000/reviews');
+    cy.visit('/reviews');
     cy.getByTestId('review-list-item').first().click();
   });
 

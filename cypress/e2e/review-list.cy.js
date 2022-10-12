@@ -2,7 +2,7 @@
 
 describe('review-list.cy.js', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000/reviews');
+    cy.visit('/reviews');
   });
 
   it('displays at least one review', () => {
