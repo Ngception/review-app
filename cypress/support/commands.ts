@@ -37,7 +37,7 @@
 // }
 
 Cypress.Commands.add('getByTestId', (value: string) => {
-  return cy.get(`[data-testid=${value}]`);
+  return cy.get(`[data-testid="${value}"]`);
 });
 
 declare global {
