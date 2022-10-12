@@ -14,14 +14,26 @@ export const SkipLink: FC<SkipLinkProps> = (props: SkipLinkProps) => {
     setIsActive(!isActive);
   };
 
-  const skipLinkClasses = `button skip-link ${!isActive ? 'is-sr-only' : ''} ${
-    props?.color ? COLORS[props.color] : 'is-primary'
-  }`;
+  const setClasses = () => {
+    let classes = 'button skip-link';
+
+    if (!isActive) {
+      classes += ' is-sr-only';
+    }
+
+    if (props.color) {
+      classes += ` ${COLORS[props.color]}`;
+    } else {
+      classes += ' is-primary';
+    }
+
+    return classes;
+  };
 
   return (
     <button
       data-testid="skip-link"
-      className={skipLinkClasses}
+      className={setClasses()}
       onFocus={toggleSkipLink}
       onBlur={toggleSkipLink}
       onClick={props.clickHandler}
