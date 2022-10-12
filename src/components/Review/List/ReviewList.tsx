@@ -12,9 +12,7 @@ interface ReviewListProps {
 export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
   const navigate = useNavigate();
 
-  const handleKeyUp = (event: KeyboardEvent, reviewId: string) => {
-    event.preventDefault();
-
+  const handleKeyDown = (event: KeyboardEvent, reviewId: string) => {
     if (event.key === 'Enter') {
       navigate(reviewId);
     }
@@ -26,14 +24,14 @@ export const ReviewList: FC<ReviewListProps> = (props: ReviewListProps) => {
     <ul data-testid="review-list" className={styles['review-list']}>
       {props?.reviews?.map((review) => (
         <li
+          data-testid="review-list-item-container"
           className={styles['review-list-item']}
-          role=""
           tabIndex={0}
           key={review.id}
           aria-label={`${review.place} review`}
           aria-description="Click to navigate to detail view for this review"
           onClick={() => navigate(review.id)}
-          onKeyUp={(event) => handleKeyUp(event, review.id)}
+          onKeyDown={(event) => handleKeyDown(event, review.id)}
         >
           <Card>
             <ReviewListItem review={review} />
