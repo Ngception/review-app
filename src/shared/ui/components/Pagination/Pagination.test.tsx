@@ -16,27 +16,33 @@ describe('Pagination', () => {
     expect(screen.getByTestId('pagination')).toBeInTheDocument();
   });
 
-  test('clicking next button changes page number', async () => {
+  test('clicking next, page number, or previous button changes page', async () => {
     const user = userEvent.setup();
-    let currentPage = 1;
-
     const testProps = {
-      totalPages: 2,
-      currentPage,
+      totalPages: 3,
+      currentPage: 2,
       recordsPerPage: 25,
-      setCurrentPage: (page: number) => {
-        currentPage = page;
-      }
+      setCurrentPage: jest.fn()
     };
 
-    const { rerender } = render(<Pagination {...testProps} />);
+    jest.spyOn(testProps, 'setCurrentPage');
+
+    render(<Pagination {...testProps} />);
+
+    const previousButton = screen.getByTestId('previous-button'),
+      nextButton = screen.getByTestId('next-button'),
+      pageThree = screen.getByTestId('page-3');
+
+    expect(previousButton).toBeInTheDocument();
+    expect(nextButton).toBeInTheDocument();
+    expect(pageThree).toBeInTheDocument();
 
     await act(async () => {
-      await user.click(screen.getByTestId('next-button'));
+      await user.click(nextButton);
+      await user.click(previousButton);
+      await user.click(pageThree);
     });
 
-    rerender(<Pagination {...testProps} />);
-
-    expect(screen.getByTestId('page-2')).toHaveClass('is-current');
+    expect(testProps.setCurrentPage).toHaveBeenCalledTimes(3);
   });
 });
