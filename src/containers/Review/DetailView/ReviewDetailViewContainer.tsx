@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useReview } from '../../../shared/hooks';
 import { Review } from '../../../shared/interfaces';
-import { Card } from '../../../shared/ui/components';
+import { Card, Loader } from '../../../shared/ui/components';
 import { ResponseContainer } from '../../Response/ResponseContainer';
 import { ReviewDetail } from '../../../components/Review/Detail/ReviewDetail';
 import styles from './ReviewDetailViewContainer.module.css';
@@ -39,7 +39,7 @@ export const ReviewDetailViewContainer = () => {
       className={styles['review-detail-view-container']}
     >
       {isLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : (
         <>
           {review && (
