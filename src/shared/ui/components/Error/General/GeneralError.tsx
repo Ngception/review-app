@@ -7,7 +7,7 @@ export const GeneralError: FC<GeneralErrorProps> = (
   props: GeneralErrorProps
 ) => {
   return (
-    <div className={styles['error-container']}>
+    <div data-testid="general-error" className={styles['error-container']}>
       <div className={styles['error-content']}>
         <h1 className="title">Oops...something went wrong.</h1>
         <div role="alert">
