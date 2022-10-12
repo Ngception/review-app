@@ -31,10 +31,16 @@ Start app:
 
 ## Testing
 
-To run unit tests:
+To run Jest unit tests:
 
 ```
   yarn test
+```
+
+To run Cypress e2e tests, make sure to run `yarn start` first and then:
+
+```
+  yarn test-e2e
 ```
 
 ---

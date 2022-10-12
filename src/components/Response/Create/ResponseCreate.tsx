@@ -73,6 +73,7 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
               <p>Posting as {state.name}</p>
             ) : (
               <FormInput
+                testId="name-input"
                 id="name"
                 type="text"
                 name="name"
@@ -86,6 +87,7 @@ export const ResponseCreate: FC<ResponseCreateProps> = (
           <FormLabel for="content">Content</FormLabel>
           <FormControl>
             <FormTextArea
+              testId="content-textarea"
               id="content"
               name="content"
               onChange={handleContentChange}
